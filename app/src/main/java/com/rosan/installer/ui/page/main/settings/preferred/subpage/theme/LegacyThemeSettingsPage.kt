@@ -26,6 +26,7 @@ import androidx.compose.material.icons.filled.Style
 import androidx.compose.material.icons.twotone.Colorize
 import androidx.compose.material.icons.twotone.InvertColors
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -40,11 +41,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.rosan.installer.R
 import com.rosan.installer.ui.icons.AppIcons
 import com.rosan.installer.ui.page.main.settings.preferred.PreferredViewAction
 import com.rosan.installer.ui.page.main.settings.preferred.PreferredViewModel
+import com.rosan.installer.ui.page.main.widget.card.ColorSwatchPreview
 import com.rosan.installer.ui.page.main.widget.dialog.HideLauncherIconWarningDialog
 import com.rosan.installer.ui.page.main.widget.setting.AppBackButton
 import com.rosan.installer.ui.page.main.widget.setting.BaseWidget
@@ -253,6 +256,8 @@ fun LegacyThemeSettingsPage(
                                                 ColorSwatchPreview(
                                                     rawColor = rawColor,
                                                     currentStyle = state.paletteStyle,
+                                                    textStyle = MaterialTheme.typography.labelMedium.copy(fontSize = 13.sp),
+                                                    textColor = MaterialTheme.colorScheme.onSurface,
                                                     isSelected = !state.useDynamicColor && state.seedColor == rawColor.color
                                                 ) {
                                                     viewModel.dispatch(PreferredViewAction.SetSeedColor(rawColor.color))
