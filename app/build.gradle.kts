@@ -261,4 +261,5 @@ dependencies {
     implementation(libs.capsule)
     // m3color
     implementation(libs.m3color)
+    implementation(libs.okhttp)
 }
