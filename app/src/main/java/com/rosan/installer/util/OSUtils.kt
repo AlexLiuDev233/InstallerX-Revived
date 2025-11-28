@@ -19,21 +19,13 @@ object OSUtils : KoinComponent {
      * Checks if the device is running HyperOS.
      */
     fun isHyperOS(): Boolean {
-        return !getSystemProperty(KEY_HYPEROS_VERSION_NAME).isNullOrEmpty()
+        return !SystemProperties.get(KEY_HYPEROS_VERSION_NAME).isNullOrEmpty()
     }
 
     /**
      * Checks if the device is running MIUI.
      */
     fun isMIUI(): Boolean {
-        return !getSystemProperty(KEY_MIUI_VERSION_NAME).isNullOrEmpty()
-    }
-
-    /**
-     * Get a system property value using the ReflectRepo
-     */
-    @SuppressLint("PrivateApi")
-    private fun getSystemProperty(key: String): String? {
-        return SystemProperties.get(key)
+        return !SystemProperties.get(KEY_MIUI_VERSION_NAME).isNullOrEmpty()
     }
 }
